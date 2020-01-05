@@ -1,1 +1,1 @@
-a simple todolist app with djangoframework
+a simple todolist app with django framework
