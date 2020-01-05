@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+{% block content %}
+
+<div align="center" class="text-danger">
+    {% if error %}
+{{ error }}
+{% endif %}
+</div>
+<br/>
+
+
+<div align="center"  >
+
+    <h3>Login to to TODO</h3>
+<form method="POST" action="{% url 'login' %}" >
+    {% csrf_token %}
+
+    <br/>
+    <input type="text" name="username" placeholder="Enter Username" required="True" />
+    <br/>
+
+    <br/>
+    <input type="password" name="password" placeholder="Enter Password"  required="True"/>
+    <br/>
+    <br/>
+    <input class="btn btn-outline-success" type="submit" value="Login" />
+</form>
+    <hr>
+    <a href="{% url 'signup' %}" >don't you have any account yet?</a>
+</div>
+
+</div>
+
+{% endblock %}
+
+

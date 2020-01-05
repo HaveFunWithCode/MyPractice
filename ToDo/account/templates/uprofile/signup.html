@@ -1,0 +1,37 @@
+{% extends '_base.html' %}
+{% block content %}
+
+<div align="center" class="text-danger">
+
+    {% if error %}
+{{ error }}
+{% endif %}
+</div>
+<br/>
+
+<div align="center"  >
+<h3>Reister in TODO</h3>
+<form method="POST" action="{% url 'signup' %}" >
+    {% csrf_token %}
+
+    <br/>
+    <input type="text" name="username"  placeholder="Enter Username" required="True"/>
+    <br/>
+
+    <br/>
+    <input type="password" name="password1"  placeholder="Enter Password" required="True"/>
+    <br/>
+
+    <br/>
+    <input type="password" name="password2"  placeholder="Confirm Password" required="True"/>
+    <br/>
+    <br/>
+    <input class="btn btn-primary" type="submit" value="Sign Up!" />
+
+     <hr>
+        <a href="{% url 'login' %}" >I have already account</a>
+</form>
+</div>
+{% endblock %}
+
+

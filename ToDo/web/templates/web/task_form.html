@@ -1,0 +1,8 @@
+{% extends '_web_based.html' %}
+{% block taskscontent %}
+    <form method="post">
+        {{ form.as_p}}
+        {% csrf_token %}
+        <input type="submit" value="add task">
+    </form>
+{% endblock %}

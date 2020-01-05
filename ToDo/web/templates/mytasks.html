@@ -1,0 +1,75 @@
+{% extends '_web_based.html' %}
+
+{% block taskscontent %}
+
+<div class="container">
+
+                    <a href="{% url 'addtask' %}"  type="submit">
+
+                        <div   class= "btn-dark btn-link row justify-content-center rounded " >
+                            add task
+                        </div>
+
+                    </a>
+
+    <div class="row justify-content-center ">
+        <div class="col rounded  m-1" style="background-color: #e582e3">
+            <div class="row">
+                <div class="col p-2" style="background-color: #9b1098">
+                Todo
+                </div>
+
+            </div>
+
+
+            {% for task in tasks %}
+            {% if task.level == -1 %}
+            <div class="row  p-2">
+                <div class="col">
+                    <a href="{% url 'update_task' pk=task.id %}" >
+                    {{ task.title }}
+                </a>
+
+                </div>
+
+
+
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="row">
+
+            </div>
+        </div>
+        <div class="col rounded  m-1" style="background-color: #e56381">
+            <div class="row p-2" style="background-color: #9b1098">
+                Doing
+            </div>
+
+
+            {% for task in tasks %}
+            {% if task.level == 0 %}
+            <div class="row p-2">
+                {{ task.title }}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col rounded  m-1" style="background-color: #e58337">
+            <div class="row p-2" style="background-color: #9b1098">
+                Done
+            </div>
+
+
+            {% for task in tasks %}
+            {% if task.level == 1 %}
+            <div class="row p-2">
+                {{ task.title }}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
